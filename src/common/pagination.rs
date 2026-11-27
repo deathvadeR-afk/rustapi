@@ -36,7 +36,7 @@ where
             .map_err(|_| Error::bad_request())?;
 
         Ok(Self {
-            limit: pagination.limit.min(MAX_LIMIT),
+            limit: pagination.limit.max(MAX_LIMIT),
             ..pagination
         })
     }
